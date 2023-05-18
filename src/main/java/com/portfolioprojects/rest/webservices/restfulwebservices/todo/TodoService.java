@@ -57,7 +57,7 @@ public class TodoService {
 
     public Todo findTodoByUserNameAndId(String username, int id) {
         Optional<Todo> optionalTodo = findByUserName(username).stream().filter(todo -> todo.getId() == id).findFirst();
-        return optionalTodo.get();
+        return optionalTodo.orElse(null);
     }
 
     public void deleteTodoByUsernameAndId(String username, int id) {
